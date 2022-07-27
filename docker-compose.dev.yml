@@ -1,0 +1,35 @@
+version: '3'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev 
+    container_name: serverBigData
+    ports:
+      - "3200:3000"
+    links:
+      - db
+    restart: always
+    environment:
+      MONGO_HOST: db
+      MONGO_PORT: 27017
+      MONGO_USER: hector
+      MONGO_PASSWORD: reallydifficultpassword
+    volumes:
+      - .:/usr/src/app    
+  db:
+    image: mongo
+    container_name: mongoBigData
+    volumes:
+      - db:/data/db
+    ports: 
+      - "27018:27017"
+    expose:
+      - 27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=hector
+      - MONGO_INITDB_ROOT_PASSWORD=reallydifficultpassword
+      - MONGO_INITDB_DATABASE=bigData
+    restart: always
+volumes:
+  db:

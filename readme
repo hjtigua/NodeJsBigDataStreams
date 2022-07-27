@@ -1,0 +1,4 @@
+Managing big data using NodeJS and MongoDB. Saving 5M records using the power of streams.
+
+Run.
+docker-compose up -d

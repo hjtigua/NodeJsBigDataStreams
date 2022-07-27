@@ -1,0 +1,19 @@
+{
+  "name": "bigdata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon -L index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^5.3.0",
+    "dotenv": "^16.0.1",
+    "mongodb": "^4.7.0"
+  }
+}
